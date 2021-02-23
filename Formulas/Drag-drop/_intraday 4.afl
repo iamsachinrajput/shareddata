@@ -1,0 +1,4 @@
+_SECTION_BEGIN("marketscript");
+#pragma nocache
+#include "C:\buysellcharts\buysellcharts\_intraday.afl"
+_SECTION_END();

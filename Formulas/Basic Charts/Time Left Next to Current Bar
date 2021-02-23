@@ -1,0 +1,54 @@
+_SECTION_BEGIN("Time Left");
+
+sound = ParamToggle("Sound Alert", "ON | OFF");
+
+function GetSecondNum()
+
+{
+
+Time = Now( 4 );
+
+Seconds = int( Time % 100 );
+
+Minutes = int( Time / 100 % 100 );
+
+Hours = int( Time / 10000 % 100 );
+
+SecondNum = int( Hours * 60 * 60 + Minutes * 60 + Seconds );
+
+return SecondNum;
+
+}
+
+RequestTimedRefresh( 1 );
+
+TimeFrame = Interval();
+
+SecNumber = GetSecondNum();
+
+Newperiod = SecNumber % TimeFrame == 0;
+
+SecsLeft = SecNumber - int( SecNumber / TimeFrame ) * TimeFrame;
+
+SecsToGo = TimeFrame - SecsLeft;
+
+
+if ( NewPeriod )
+
+{
+
+GfxSelectSolidBrush( colorYellow );
+
+GfxSelectPen( colorYellow, 2 );
+
+if(sound)
+{
+Say( "New period" );
+}
+}
+
+
+PlotTextSetFont(NumToStr(SecsToGo,1,False)+ " Sec Left", "Arial", 10, BarCount-1, Close[BarCount-1], colorred, colorDefault, -30 ); 
+
+
+_SECTION_END(); 
