@@ -1,3 +1,0 @@
-_SECTION_BEGIN("RLT Option");
-RLT_Option_System();
-_SECTION_END();

@@ -1,3 +1,0 @@
-_SECTION_BEGIN("Intraday");
-RLT_Intraday_System();
-_SECTION_END();
